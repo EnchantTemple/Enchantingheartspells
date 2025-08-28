@@ -47,7 +47,18 @@ const nextConfig: NextConfig = {
         hostname: 'dhwaniastro.com',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.realmagicspellscaster.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+  experimental: {
+    allowedDevOrigins: [
+      'https://6000-firebase-studio-1756418532546.cluster-cbeiita7rbe7iuwhvjs5zww2i4.cloudworkstations.dev',
     ],
   },
 };

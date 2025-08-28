@@ -28,7 +28,7 @@ const services = [
     description: "Eliminate third parties, remove negative influences, and restore peace and harmony in your current relationship.",
     delivery: "Within 48 hours",
     icon: <Users className="h-8 w-8 text-accent" />,
-    image: "https://picsum.photos/400/250?a=7",
+    image: "https://www.realmagicspellscaster.com/wp-content/uploads/2021/02/DALLE-2023-11-23-10.51-min-1024x585-1.webp",
     aiHint: "happy couple together",
     href: "/booking"
   },

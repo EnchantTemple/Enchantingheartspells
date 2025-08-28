@@ -35,6 +35,12 @@ const nextConfig: NextConfig = {
         hostname: 'welovespells.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fiverr-res.cloudinary.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

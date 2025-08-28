@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { bookSpell, type State } from './actions';
 import { useToast } from '@/hooks/use-toast';
@@ -11,7 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Terminal } from 'lucide-react';
+import { Terminal, X } from 'lucide-react';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -35,15 +35,14 @@ export default function BookingForm() {
   const [state, dispatch] = useActionState(bookSpell, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     if (state.success) {
-      toast({
-        title: "Booking Successful!",
-        description: state.message,
-      });
+      setShowSuccess(true);
       formRef.current?.reset();
-    } else if (state.message) {
+    } else if (state.message && !state.success) {
+      // Show error toast only for failures
       toast({
         variant: "destructive",
         title: "Booking Failed",
@@ -54,11 +53,19 @@ export default function BookingForm() {
 
   return (
     <form ref={formRef} action={dispatch} className="space-y-6">
-      {state.success && (
-        <Alert>
+      {showSuccess && (
+        <Alert className="relative">
           <Terminal className="h-4 w-4" />
           <AlertTitle>Success!</AlertTitle>
           <AlertDescription>{state.message}</AlertDescription>
+          <button
+            type="button"
+            onClick={() => setShowSuccess(false)}
+            className="absolute top-2 right-2 p-1 rounded-md text-foreground/50 hover:text-foreground"
+          >
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </button>
         </Alert>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

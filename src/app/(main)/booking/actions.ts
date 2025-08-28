@@ -9,7 +9,9 @@ const bookingSchema = z.object({
   spellType: z.string().min(1, { message: "Please select a spell type." }),
   targetPerson: z.string().min(2, { message: "Target person's name must be at least 2 characters." }),
   message: z.string().min(10, { message: "Please describe your situation (at least 10 characters)." }),
-  terms: z.boolean().refine(val => val, { message: "You must accept the terms and conditions." }),
+  terms: z.literal("on", {
+    errorMap: () => ({ message: "You must accept the terms and conditions." }),
+  }),
 });
 
 export type State = {
@@ -27,15 +29,7 @@ export type State = {
 };
 
 export async function bookSpell(prevState: State, formData: FormData) : Promise<State> {
-    const validatedFields = bookingSchema.safeParse({
-        fullName: formData.get("fullName"),
-        whatsappNumber: formData.get("whatsappNumber"),
-        email: formData.get("email"),
-        spellType: formData.get("spellType"),
-        targetPerson: formData.get("targetPerson"),
-        message: formData.get("message"),
-        terms: formData.get("terms") === 'on',
-    });
+    const validatedFields = bookingSchema.safeParse(Object.fromEntries(formData.entries()));
 
     if (!validatedFields.success) {
         return {

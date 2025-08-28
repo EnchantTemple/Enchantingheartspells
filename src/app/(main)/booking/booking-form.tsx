@@ -60,7 +60,7 @@ export default function BookingForm() {
             <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
             <DialogTitle className="text-2xl">Booking Sent!</DialogTitle>
             <DialogDescription>
-              Your request has been received. I will be in touch with you shortly.
+              Your request has been received. You will be contacted within 12 hours.
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Heart } from 'lucide-react';
 import { Logo } from './icons';
+import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -69,12 +70,15 @@ export default function Header() {
               <span className="font-bold">EHS</span>
             </Link>
           </div>
-          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full shadow-lg">
-            <Link href="/booking">
-              Book Your Spell Now
-              <Heart className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full shadow-lg">
+              <Link href="/booking">
+                Book Your Spell Now
+                <Heart className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

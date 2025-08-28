@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, MessageCircle, Clock, Facebook } from 'lucide-react';
+import { Mail, MessageCircle, Clock } from 'lucide-react';
 
 const contactMethods = [
   {
@@ -18,13 +18,6 @@ const contactMethods = [
     cta: 'Send Email',
     href: 'mailto:hello@enchantingheartspells.com',
   },
-  {
-    icon: <Facebook className="h-8 w-8 text-primary" />,
-    title: 'Facebook Messenger',
-    description: 'You can also reach out to me via Facebook for consultations.',
-    cta: 'Message on Facebook',
-    href: 'https://m.me/your-facebook-page', // Replace with actual messenger link
-  },
 ];
 
 export default function ContactPage() {
@@ -38,7 +31,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
           {contactMethods.map((method) => (
             <Card key={method.title} className="text-center flex flex-col items-center p-6 shadow-lg">
               <CardHeader className="items-center">

@@ -9,7 +9,7 @@ const contactMethods = [
     title: 'WhatsApp Live Chat',
     description: 'For the fastest response, send me a message on WhatsApp.',
     cta: 'Chat Now',
-    href: 'https://wa.me/1234567890', // Replace with actual WhatsApp link
+    href: 'https://wa.me/12494800550',
   },
   {
     icon: <Mail className="h-8 w-8 text-primary" />,

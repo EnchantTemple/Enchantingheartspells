@@ -1,5 +1,6 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import WhatsAppChat from '@/components/whatsapp-chat';
 
 export default function MainLayout({
   children,
@@ -11,6 +12,7 @@ export default function MainLayout({
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <WhatsAppChat />
     </div>
   );
 }

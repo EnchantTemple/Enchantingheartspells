@@ -10,8 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Terminal, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { CheckCircle2 } from 'lucide-react';
+
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -52,85 +53,84 @@ export default function BookingForm() {
   }, [state, toast]);
 
   return (
-    <form ref={formRef} action={dispatch} className="space-y-6">
-      {showSuccess && (
-        <Alert className="relative">
-          <Terminal className="h-4 w-4" />
-          <AlertTitle>Success!</AlertTitle>
-          <AlertDescription>{state.message}</AlertDescription>
-          <button
-            type="button"
-            onClick={() => setShowSuccess(false)}
-            className="absolute top-2 right-2 p-1 rounded-md text-foreground/50 hover:text-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-        </Alert>
-      )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="fullName">Full Name</Label>
-          <Input id="fullName" name="fullName" placeholder="Your full name" required />
-          {state.errors?.fullName && <p className="text-sm text-destructive">{state.errors.fullName[0]}</p>}
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="whatsappNumber">WhatsApp Number</Label>
-          <Input id="whatsappNumber" name="whatsappNumber" placeholder="Your WhatsApp number" required />
-          {state.errors?.whatsappNumber && <p className="text-sm text-destructive">{state.errors.whatsappNumber[0]}</p>}
-        </div>
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="email">Email Address</Label>
-        <Input id="email" name="email" type="email" placeholder="Your email for confirmation" required />
-        {state.errors?.email && <p className="text-sm text-destructive">{state.errors.email[0]}</p>}
-      </div>
+    <>
+      <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
+        <DialogContent>
+          <DialogHeader className="items-center text-center">
+            <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
+            <DialogTitle className="text-2xl">Booking Sent!</DialogTitle>
+            <DialogDescription>
+              Your request has been received. I will be in touch with you shortly.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <form ref={formRef} action={dispatch} className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <Label htmlFor="fullName">Full Name</Label>
+            <Input id="fullName" name="fullName" placeholder="Your full name" required />
+            {state.errors?.fullName && <p className="text-sm text-destructive">{state.errors.fullName[0]}</p>}
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="whatsappNumber">WhatsApp Number</Label>
+            <Input id="whatsappNumber" name="whatsappNumber" placeholder="Your WhatsApp number" required />
+            {state.errors?.whatsappNumber && <p className="text-sm text-destructive">{state.errors.whatsappNumber[0]}</p>}
+          </div>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address</Label>
+          <Input id="email" name="email" type="email" placeholder="Your email for confirmation" required />
+          {state.errors?.email && <p className="text-sm text-destructive">{state.errors.email[0]}</p>}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+           <div className="space-y-2">
+            <Label htmlFor="spellType">Type of Spell</Label>
+            <Select name="spellType">
+                <SelectTrigger id="spellType">
+                    <SelectValue placeholder="Select a spell" />
+                </SelectTrigger>
+                <SelectContent>
+                    {spellTypes.map(spell => (
+                        <SelectItem key={spell} value={spell}>{spell}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+            {state.errors?.spellType && <p className="text-sm text-destructive">{state.errors.spellType[0]}</p>}
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="targetPerson">Target Person's First Name</Label>
+            <Input id="targetPerson" name="targetPerson" placeholder="e.g., John" required />
+            {state.errors?.targetPerson && <p className="text-sm text-destructive">{state.errors.targetPerson[0]}</p>}
+          </div>
+        </div>
+
          <div className="space-y-2">
-          <Label htmlFor="spellType">Type of Spell</Label>
-          <Select name="spellType">
-              <SelectTrigger id="spellType">
-                  <SelectValue placeholder="Select a spell" />
-              </SelectTrigger>
-              <SelectContent>
-                  {spellTypes.map(spell => (
-                      <SelectItem key={spell} value={spell}>{spell}</SelectItem>
-                  ))}
-              </SelectContent>
-          </Select>
-          {state.errors?.spellType && <p className="text-sm text-destructive">{state.errors.spellType[0]}</p>}
+            <Label htmlFor="message">Describe your situation</Label>
+            <Textarea id="message" name="message" placeholder="Tell me about your situation in detail." rows={5} required />
+            {state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="targetPerson">Target Person's First Name</Label>
-          <Input id="targetPerson" name="targetPerson" placeholder="e.g., John" required />
-          {state.errors?.targetPerson && <p className="text-sm text-destructive">{state.errors.targetPerson[0]}</p>}
+        
+        <div className="flex items-start space-x-2">
+          <Checkbox id="terms" name="terms" />
+          <div className="grid gap-1.5 leading-none">
+            <label htmlFor="terms" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Accept Terms & Conditions
+            </label>
+            <p className="text-sm text-muted-foreground">
+              You agree to our <a href="/refund-policy" className="underline">Refund Policy</a> and <a href="/privacy" className="underline">Privacy Policy</a>.
+            </p>
+            {state.errors?.terms && <p className="text-sm text-destructive">{state.errors.terms[0]}</p>}
+          </div>
         </div>
-      </div>
 
-       <div className="space-y-2">
-          <Label htmlFor="message">Describe your situation</Label>
-          <Textarea id="message" name="message" placeholder="Tell me about your situation in detail." rows={5} required />
-          {state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
-      </div>
-      
-      <div className="flex items-start space-x-2">
-        <Checkbox id="terms" name="terms" />
-        <div className="grid gap-1.5 leading-none">
-          <label htmlFor="terms" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-            Accept Terms & Conditions
-          </label>
-          <p className="text-sm text-muted-foreground">
-            You agree to our <a href="/refund-policy" className="underline">Refund Policy</a> and <a href="/privacy" className="underline">Privacy Policy</a>.
-          </p>
-          {state.errors?.terms && <p className="text-sm text-destructive">{state.errors.terms[0]}</p>}
+        <div>
+          <SubmitButton />
         </div>
-      </div>
 
-      <div>
-        <SubmitButton />
-      </div>
-
-    </form>
+      </form>
+    </>
   );
 }

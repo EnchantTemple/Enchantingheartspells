@@ -63,7 +63,7 @@ export async function bookSpell(prevState: State, formData: FormData) : Promise<
     // console.log("Booking successful with data:", validatedFields.data);
     
     return {
-        message: "Booking Received! You’ll be contacted within 12 hours via WhatsApp.",
+        message: "Booking Sent!",
         success: true,
     };
 }

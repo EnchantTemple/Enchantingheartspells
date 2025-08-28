@@ -17,7 +17,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90">
-      {pending ? 'Submitting...' : 'Pay & Book Spell'}
+      {pending ? 'Submitting...' : 'Book Spell'}
     </Button>
   );
 }
@@ -128,12 +128,6 @@ export default function BookingForm() {
       </div>
 
       <div>
-        <p className="text-center text-sm text-muted-foreground mb-4">Select your payment method</p>
-        <div className="grid grid-cols-3 gap-4 mb-4">
-            <Button type="button" variant="outline">PayPal</Button>
-            <Button type="button" variant="outline">Crypto</Button>
-            <Button type="button" variant="outline">Bank</Button>
-        </div>
         <SubmitButton />
       </div>
 

@@ -1,8 +1,54 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Globe, Heart, MessageCircle } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { CheckCircle, Globe, Heart, MessageCircle, Clock, Sparkles, Users, Zap } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+const services = [
+  {
+    title: "Reunite Lovers Spell",
+    description: "Bring back an ex-lover or reconnect emotionally with your partner. This spell is designed to mend broken hearts and open lines of communication.",
+    delivery: "Within 3 days",
+    icon: <Heart className="h-8 w-8 text-accent" />,
+    image: "https://picsum.photos/400/250?a=5",
+    aiHint: "reuniting couple",
+    href: "/booking"
+  },
+  {
+    title: "Attract New Love Spell",
+    description: "Manifest a soulmate or attract a serious, committed partner into your life. This ritual helps align your energy to draw in true love.",
+    delivery: "Within 5 days",
+    icon: <Sparkles className="h-8 w-8 text-accent" />,
+    image: "https://picsum.photos/400/250?a=6",
+    aiHint: "person looking hopeful",
+    href: "/booking"
+  },
+  {
+    title: "Strengthen Relationship",
+    description: "Eliminate third parties, remove negative influences, and restore peace and harmony in your current relationship.",
+    delivery: "Within 48 hours",
+    icon: <Users className="h-8 w-8 text-accent" />,
+    image: "https://picsum.photos/400/250?a=7",
+    aiHint: "happy couple together",
+    href: "/booking"
+  },
+];
+
+const faqs = [
+  {
+    question: "How long does it take to see results?",
+    answer: "Results vary depending on the complexity of the situation and the energies involved. Some clients see results within a few days, while for others it may take a few weeks. I provide a timeline estimate during our consultation."
+  },
+  {
+    question: "Are your spells safe? Is there any negative karma?",
+    answer: "Absolutely. My practice is built on a foundation of ethical, positive energy work. I do not engage in black magic or any rituals that intend harm. All spells are 100% safe and will not create negative karma for you or anyone else."
+  },
+  {
+    question: "What do you need from me to start?",
+    answer: "To begin, I typically require the full names of the people involved, their birth dates (if known), and a recent photo. Most importantly, I need a detailed description of your situation and your desired outcome. This information remains completely confidential."
+  },
+];
 
 export default function Home() {
   return (
@@ -46,8 +92,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlighted Stats Section */}
+      {/* Services Section */}
       <section className="py-16 md:py-24 bg-secondary">
+        <div className="container px-4 md:px-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Our Love Spells</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {services.map((service) => (
+              <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={400}
+                  height={250}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                  data-ai-hint={service.aiHint}
+                />
+                <CardHeader className="flex flex-row items-center gap-4">
+                  {service.icon}
+                  <CardTitle>{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription>{service.description}</CardDescription>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center">
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4 mr-2" />
+                    <span>{service.delivery}</span>
+                  </div>
+                  <Button asChild variant="ghost" className="text-primary hover:text-primary">
+                    <Link href={service.href}>Book Now &rarr;</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg">
+              <Link href="/services">View All Services</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlighted Stats Section */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container px-4 md:px-6">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center text-center">
@@ -65,6 +158,35 @@ export default function Home() {
               <h3 className="text-2xl font-bold">24/7</h3>
               <p className="text-muted-foreground">Support via WhatsApp</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container px-4 md:px-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Frequently Asked Questions</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Have questions? Here are some of the most common things clients ask.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto mt-12">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-base text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg">
+              <Link href="/faq">View More Questions</Link>
+            </Button>
           </div>
         </div>
       </section>

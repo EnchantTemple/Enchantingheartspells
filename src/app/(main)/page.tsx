@@ -33,6 +33,15 @@ const services = [
     aiHint: "happy couple together",
     href: "/booking"
   },
+  {
+    title: "Stop Break-Up / Divorce",
+    description: "Protect your marriage or relationship from falling apart. This powerful spell works to prevent separation and rebuild your bond.",
+    delivery: "Within 2-4 days",
+    icon: <Zap className="h-8 w-8 text-accent" />,
+    image: "https://i.ebayimg.com/images/g/3n8AAOSwQZRkHftc/s-l400.jpg",
+    aiHint: "hands holding tight",
+    href: "/booking"
+  }
 ];
 
 const faqs = [
@@ -106,7 +115,7 @@ export default function Home() {
                   Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 {services.map((service) => (
                   <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card/70">
                     <Image

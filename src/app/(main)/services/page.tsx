@@ -37,7 +37,7 @@ const services = [
     description: "Protect your marriage or relationship from falling apart. This powerful spell works to prevent separation and rebuild your bond.",
     delivery: "Within 2-4 days",
     icon: <Zap className="h-8 w-8 text-accent" />,
-    image: "https://picsum.photos/400/250?a=8",
+    image: "https://i.ebayimg.com/images/g/3n8AAOSwQZRkHftc/s-l400.jpg",
     aiHint: "hands holding tight",
     href: "/booking"
   },

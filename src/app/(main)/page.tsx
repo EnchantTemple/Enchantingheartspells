@@ -11,7 +11,7 @@ const services = [
     description: "Bring back an ex-lover or reconnect emotionally with your partner. This spell is designed to mend broken hearts and open lines of communication.",
     delivery: "Within 3 days",
     icon: <Heart className="h-8 w-8 text-accent" />,
-    image: "https://picsum.photos/400/250?a=5",
+    image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/160281278/original/0b5e5011a795ed18f8185caee189ca66666d2f2a/cast-a-spell-to-retrieve-and-reunite-your-lover.jpeg",
     aiHint: "reuniting couple",
     href: "/booking"
   },

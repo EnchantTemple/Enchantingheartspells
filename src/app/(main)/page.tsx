@@ -92,104 +92,111 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Our Love Spells</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {services.map((service) => (
-              <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                  data-ai-hint={service.aiHint}
-                />
-                <CardHeader className="flex flex-row items-center gap-4">
-                  {service.icon}
-                  <CardTitle>{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription>{service.description}</CardDescription>
-                </CardContent>
-                <CardFooter className="flex justify-between items-center">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4 mr-2" />
-                    <span>{service.delivery}</span>
-                  </div>
-                  <Button asChild variant="ghost" className="text-primary hover:text-primary">
-                    <Link href={service.href}>Book Now &rarr;</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Button asChild size="lg">
-              <Link href="/services">View All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <div
+        className="bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://artoftheroot.com/cdn/shop/articles/backup-article-558517944397_8d42cd6d-90d2-4224-9721-861522dd9c9e.jpg?v=1732551887')" }}
+      >
+        <div className="bg-background/90 backdrop-blur-sm">
+          {/* Services Section */}
+          <section className="py-16 md:py-24">
+            <div className="container px-4 md:px-6">
+              <div className="text-center max-w-2xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Our Love Spells</h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                {services.map((service) => (
+                  <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card/70">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={400}
+                      height={250}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                      data-ai-hint={service.aiHint}
+                    />
+                    <CardHeader className="flex flex-row items-center gap-4">
+                      {service.icon}
+                      <CardTitle>{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <CardDescription>{service.description}</CardDescription>
+                    </CardContent>
+                    <CardFooter className="flex justify-between items-center">
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Clock className="h-4 w-4 mr-2" />
+                        <span>{service.delivery}</span>
+                      </div>
+                      <Button asChild variant="ghost" className="text-primary hover:text-primary">
+                        <Link href={service.href}>Book Now &rarr;</Link>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+              <div className="mt-12 text-center">
+                <Button asChild size="lg">
+                  <Link href="/services">View All Services</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
 
-      {/* Highlighted Stats Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center">
-              <CheckCircle className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold">1200+</h3>
-              <p className="text-muted-foreground">Happy Clients</p>
+          {/* Highlighted Stats Section */}
+          <section className="py-16 md:py-24">
+            <div className="container px-4 md:px-6">
+              <div className="grid gap-8 md:grid-cols-3">
+                <div className="flex flex-col items-center text-center">
+                  <CheckCircle className="h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-2xl font-bold">1200+</h3>
+                  <p className="text-muted-foreground">Happy Clients</p>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <Globe className="h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-2xl font-bold">20+</h3>
+                  <p className="text-muted-foreground">Countries Served</p>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <MessageCircle className="h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-2xl font-bold">24/7</h3>
+                  <p className="text-muted-foreground">Support via WhatsApp</p>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center">
-              <Globe className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold">20+</h3>
-              <p className="text-muted-foreground">Countries Served</p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <MessageCircle className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold">24/7</h3>
-              <p className="text-muted-foreground">Support via WhatsApp</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Frequently Asked Questions</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Have questions? Here are some of the most common things clients ask.
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto mt-12">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-          <div className="mt-12 text-center">
-            <Button asChild size="lg">
-              <Link href="/faq">View More Questions</Link>
-            </Button>
-          </div>
+          {/* FAQ Section */}
+          <section className="py-16 md:py-24">
+            <div className="container px-4 md:px-6">
+              <div className="text-center max-w-2xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Frequently Asked Questions</h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Have questions? Here are some of the most common things clients ask.
+                </p>
+              </div>
+              <div className="max-w-3xl mx-auto mt-12">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
+                      <AccordionContent className="text-base text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+              <div className="mt-12 text-center">
+                <Button asChild size="lg">
+                  <Link href="/faq">View More Questions</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </>
   );
 }

@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
-              About Lady Amina
+              About EnchantingHeartSpells
             </h1>
             <p className="text-lg text-muted-foreground">
               Hello, I’m a spiritualist and 5th-generation African healer. I was born with the divine gift of energetic alignment and emotional healing. My journey began in the sacred lands of Benin, where my grandmother passed down secret ancestral rituals for love and harmony.
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <Card className="overflow-hidden shadow-lg">
               <Image
                 src="https://picsum.photos/600/700"
-                alt="Lady Amina"
+                alt="EnchantingHeartSpells"
                 width={600}
                 height={700}
                 className="w-full h-auto object-cover"

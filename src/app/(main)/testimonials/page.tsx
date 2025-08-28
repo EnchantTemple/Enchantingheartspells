@@ -8,7 +8,7 @@ const testimonials = [
     avatar: "https://picsum.photos/100/100?a=1",
     rating: 5,
     date: "4 days ago",
-    text: "She helped me bring back my fiancé in just 4 days. I’m in tears of joy! Thank you, Lady Amina.",
+    text: "She helped me bring back my fiancé in just 4 days. I’m in tears of joy! Thank you, EnchantingHeartSpells.",
     aiHint: "happy woman"
   },
   {
@@ -40,7 +40,7 @@ const testimonials = [
     avatar: "https://picsum.photos/100/100?a=5",
     rating: 5,
     date: "1 week ago",
-    text: "I was skeptical, but Lady Amina's guidance was reassuring. My ex and I are talking again, and it feels like we have a real chance.",
+    text: "I was skeptical, but EnchantingHeartSpells's guidance was reassuring. My ex and I are talking again, and it feels like we have a real chance.",
     aiHint: "hopeful man"
   },
   {

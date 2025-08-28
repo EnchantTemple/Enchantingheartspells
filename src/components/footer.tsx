@@ -27,7 +27,7 @@ export default function Footer() {
               <div>
                 <h3 className="font-semibold mb-4">About Us</h3>
                 <ul className="space-y-2">
-                  <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">About Lady Amina</Link></li>
+                  <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">About EnchantingHeartSpells</Link></li>
                   <li><Link href="/testimonials" className="text-sm text-muted-foreground hover:text-primary">Testimonials</Link></li>
                   <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-primary">Blog</Link></li>
                 </ul>

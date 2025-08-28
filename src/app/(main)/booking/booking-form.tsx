@@ -107,13 +107,6 @@ export default function BookingForm() {
           {state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
       </div>
       
-      <div className="space-y-2">
-          <Label htmlFor="photo">Upload Optional Photo</Label>
-          <Input id="photo" name="photo" type="file" accept="image/*" />
-          <p className="text-xs text-muted-foreground">A photo of you and/or the target person can help strengthen the spell. (Optional, max 5MB)</p>
-          {state.errors?.photo && <p className="text-sm text-destructive">{state.errors.photo[0]}</p>}
-      </div>
-
       <div className="flex items-start space-x-2">
         <Checkbox id="terms" name="terms" />
         <div className="grid gap-1.5 leading-none">

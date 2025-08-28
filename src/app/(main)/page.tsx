@@ -56,7 +56,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
         <Image
-          src="https://picsum.photos/1920/1080"
+          src="https://welovespells.net/cdn/shop/articles/what-should-i-write-in-my-intentions-for-a-love-spell-322773_1022x.jpg?v=1732339645"
           alt="Mystical background with candles and stars"
           fill
           className="object-cover -z-10"

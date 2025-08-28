@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
         hostname: 'artoftheroot.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'welovespells.net',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

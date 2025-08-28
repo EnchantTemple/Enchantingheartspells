@@ -41,6 +41,12 @@ const nextConfig: NextConfig = {
         hostname: 'fiverr-res.cloudinary.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dhwaniastro.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

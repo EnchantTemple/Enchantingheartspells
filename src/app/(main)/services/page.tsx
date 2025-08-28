@@ -19,8 +19,8 @@ const services = [
     description: "Manifest a soulmate or attract a serious, committed partner into your life. This ritual helps align your energy to draw in true love.",
     delivery: "Within 5 days",
     icon: <Sparkles className="h-8 w-8 text-accent" />,
-    image: "https://picsum.photos/400/250?a=6",
-    aiHint: "person looking hopeful",
+    image: "https://dhwaniastro.com/public/cms-images/products/SKU2023M2LNHFJTC_love%20spells%20that%20work%20overnight%20-%20featured%20image-0.jpg",
+    aiHint: "love spell candle",
     href: "/booking"
   },
   {

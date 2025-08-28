@@ -54,52 +54,57 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-secondary">
-      <div className="container py-16 md:py-24 px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">Our Love Spells</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
-          </p>
-        </div>
+    <div
+      className="bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('https://artoftheroot.com/cdn/shop/articles/backup-article-558517944397_8d42cd6d-90d2-4224-9721-861522dd9c9e.jpg?v=1732551887')" }}
+    >
+      <div className="bg-background/80 backdrop-blur-sm">
+        <div className="container py-16 md:py-24 px-4 md:px-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">Our Love Spells</h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Each spell is a sacred ritual performed with your name and photo, including a personalized consultation and post-spell follow-up support.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {services.map((service) => (
-            <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-               <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                  data-ai-hint={service.aiHint}
-                />
-              <CardHeader className="flex flex-row items-center gap-4">
-                {service.icon}
-                <CardTitle>{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardDescription>{service.description}</CardDescription>
-              </CardContent>
-              <CardFooter className="flex justify-between items-center">
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4 mr-2" />
-                  <span>{service.delivery}</span>
-                </div>
-                <Button asChild variant="ghost" className="text-primary hover:text-primary">
-                  <Link href={service.href}>Book Now &rarr;</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {services.map((service) => (
+              <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card/70">
+                 <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover rounded-t-lg"
+                    data-ai-hint={service.aiHint}
+                  />
+                <CardHeader className="flex flex-row items-center gap-4">
+                  {service.icon}
+                  <CardTitle>{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription>{service.description}</CardDescription>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center">
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4 mr-2" />
+                    <span>{service.delivery}</span>
+                  </div>
+                  <Button asChild variant="ghost" className="text-primary hover:text-primary">
+                    <Link href={service.href}>Book Now &rarr;</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
 
-        <div className="mt-16 text-center">
-           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full shadow-lg text-lg px-8 py-6">
-            <Link href="/booking">
-              Book a Custom Spell
-            </Link>
-          </Button>
+          <div className="mt-16 text-center">
+             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full shadow-lg text-lg px-8 py-6">
+              <Link href="/booking">
+                Book a Custom Spell
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

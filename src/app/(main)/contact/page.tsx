@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, MessageCircle, Clock } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 const contactMethods = [
   {
@@ -9,14 +10,14 @@ const contactMethods = [
     title: 'WhatsApp Live Chat',
     description: 'For the fastest response, send me a message on WhatsApp.',
     cta: 'Chat Now',
-    href: 'https://wa.me/12494800550',
+    href: siteConfig.whatsappLink,
   },
   {
     icon: <Mail className="h-8 w-8 text-primary" />,
     title: 'Email',
     description: 'Send your questions to my personal email. I reply within 24 hours.',
     cta: 'Send Email',
-    href: 'mailto:hello@enchantingheartspells.com',
+    href: `mailto:${siteConfig.email}`,
   },
 ];
 

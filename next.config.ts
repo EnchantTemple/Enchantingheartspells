@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https'
+        protocol: 'https',
         hostname: 'i.ebayimg.com',
         port: '',
         pathname: '/**',
